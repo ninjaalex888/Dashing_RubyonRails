@@ -1,0 +1,87 @@
+<% widgetType = @widget.widget_typeid %>
+
+<% case widgetType %>
+<% when 1 
+	widgetTypeText = "Number" %>
+<% when 2 
+	widgetTypeText = "Timeline" %>
+<% when 3 
+	widgetTypeText = "Text" %>
+<% when 4 
+	widgetTypeText = "Assignee Table" %>
+<% when 5 
+  widgetTypeText = "Components Table" %>
+<% when 6 
+  widgetTypeText = "Line Chart" %>
+<% when 7 
+  widgetTypeText = "Meter" %>
+<% when 8 
+  widgetTypeText = "Countdown" %>
+<% when 9 
+  widgetTypeText = "Build Status Teamcity" %>
+<% when 10 
+  widgetTypeText = "Build Status Solano" %>
+<% when 11 
+  widgetTypeText = "Build Status Jenkins" %>
+<% when 12 
+  widgetTypeText = "Github Status" %>
+<% when 13 
+  widgetTypeText = "Jenkins Perf Response Codes" %>
+<% when 14
+  widgetTypeText = "Jenkins Avg Response Time" %>
+<% when 15
+  widgetTypeText = "Testrail Test Status Chart" %>
+<% end %>
+
+
+<h2>Widget: <%= @widget.title %></h2>
+
+
+	<div class="field" id="widget_type">
+		<strong>Widget Type: </strong> <%= widgetTypeText %><br />
+	</div>
+
+	<div class="field" id="widget_moreinfo" <% if ["Text"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+		<strong>Widget More Info: </strong> <%= @widget.moreinfo %><br />
+	</div>
+
+	<div class="field" id="widget_jql" <% if ["Number", "Assignee Table", "Components Table", "Line Chart", "Meter"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+		<strong>Widget JQL: </strong> <%= @widget.jql %><br />
+	</div>
+
+	<div class="field" id="widget_releaseversion" <% if ["Number", "Assignee Table", "Components Table", "Line Chart", "Meter"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+		<strong>Widget Release Version: </strong> <%= @widget.releaseversion %><br />
+	</div>
+
+	<div class="field" id="widget_datatext" <% if ["Text"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+		<strong>Widget Text Data: </strong> <%= @widget.datatext %><br />
+	</div>
+
+	<div class="field" id="widget_timelinedata" <% if ["Timeline"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+		<strong>Widget Timeline Data: </strong> <%= @widget.timelinedata %><br />
+	</div>
+
+	<div class="field" id="widget_dateend" <% if ["Countdown"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+		<strong>Widget Countdown Date End: </strong> <%= @widget.dateend %><br />
+	</div>
+
+	<div class="field" id="widget_jobname" <% if ["Build Status Teamcity", "Build Status Solano", "Build Status Jenkins", "Testrail Test Status Chart", "Jenkins Avg Response Time", "Jenkins Perf Response Codes"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+		<strong>Widget Jobname: </strong> <%= @widget.jobname %><br />
+	</div>
+
+	<div class="field" id="widget_filterby" <% if ["Assignee Table"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+		<strong>Widget Filter By: </strong> <%= @widget.filterby %><br />
+	</div>
+
+
+
+   		<strong>Dashboard:</strong> <%= link_to @widget.dashboard.release, :controller => 'dashboard', :action => "show", :id => @widget.dashboard.id %><br />
+
+<%= link_to 'Back', {:controller => 'dashboard', :action => 'list' }%>
+
+<%= link_to 'Edit', {:action => 'edit', :id => @widget.id} %>
+
+<hr />
+
+
+<p><%= link_to "Dashboard List", {:controller => 'dashboard', :action => 'list' }%></p>

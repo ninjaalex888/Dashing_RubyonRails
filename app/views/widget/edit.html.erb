@@ -1,0 +1,297 @@
+<% widgetType = @widget.widget_typeid %>
+
+<% case widgetType %>
+<% when 1 
+	widgetTypeText = "Number" %>
+<% when 2 
+	widgetTypeText = "Timeline" %>
+<% when 3 
+	widgetTypeText = "Text" %>
+<% when 4 
+	widgetTypeText = "Assignee Table" %>
+<% when 5 
+  widgetTypeText = "Components Table" %>
+<% when 6 
+  widgetTypeText = "Line Chart" %>
+<% when 7 
+  widgetTypeText = "Meter" %>
+<% when 8 
+  widgetTypeText = "Countdown" %>
+<% when 9 
+  widgetTypeText = "Build Status Teamcity" %>
+<% when 10 
+  widgetTypeText = "Build Status Solano" %>
+<% when 11 
+  widgetTypeText = "Build Status Jenkins" %>
+<% when 12 
+  widgetTypeText = "Github Status" %>
+<% when 13 
+  widgetTypeText = "Jenkins Perf Response Codes" %>
+<% when 14 
+widgetTypeText = "Jenkins Avg Response Time" %>
+<% when 15 
+widgetTypeText = "Testrail Test Status Chart" %>
+<% end %>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+ <script>
+$(document).ready(function(){
+    $('#typeSelect').on('change', function() {
+      if ( $('#typeSelect :selected').text() == 'Number')
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").show();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+      }
+
+      else if ( $('#typeSelect :selected').text() == 'Timeline')
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").show();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+      }
+
+      else if ( $('#typeSelect :selected').text() == 'Text')
+      {
+        $("#widget_moreinfo").show();
+        $("#widget_jql").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").show();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+      }
+
+      else if ( $('#typeSelect :selected').text() == 'Assignee Table')
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").show();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+      }
+
+      else if ( $('#typeSelect :selected').text() == 'Components Table')
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").show();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+      }
+
+      else if ( $('#typeSelect :selected').text() == 'Line Chart')
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").show();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+      }
+
+      else if ( $('#typeSelect :selected').text() == 'Meter')
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").show();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+      }
+
+      else if ( $('#typeSelect :selected').text() == 'Countdown')
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").show();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+      }
+
+      else if ( $('#typeSelect :selected').text() == 'Build Status Teamcity')
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").show();
+        $("#widget_filterby").hide();
+      }
+
+      else if ( $('#typeSelect :selected').text() == 'Build Status Solano')
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").show();
+        $("#widget_filterby").hide();
+      }
+
+      else if ( $('#typeSelect :selected').text() == 'Build Status Jenkins')
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").show();
+        $("#widget_filterby").hide();
+      }
+      else if ( $('#typeSelect :selected').text() == 'Github Status')
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+      }
+      else if ( $('#typeSelect :selected').text() == 'Jenkins Perf Response Codes')
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").show();
+        $("#widget_filterby").hide();
+      }
+      else if ( $('#typeSelect :selected').text() == 'Jenkins Avg Response Time')
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").show();
+        $("#widget_filterby").hide();
+      }
+      else if ( $('#typeSelect :selected').text() == 'Testrail Test Status Chart')
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").show();
+        $("#widget_filterby").hide();
+      }
+
+      else
+      {
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+      }
+    });
+
+  
+
+
+});
+</script>
+
+<h2>Edit Widget Details</h2>
+
+<%= form_for @widget, :url =>{:action => "update", :id =>@widget} do |f| %>
+
+<p>Widget Title: <%= f.text_field 'title' %></p>
+
+<p>Widget Type: <%= f.collection_select :widget_typeid, WidgetTypes.all, :id, :widget_type, {prompt: true}, {:id=>'typeSelect'} %></p>
+
+<div class="field" id="widget_moreinfo" <% if ["Text"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+<p>Widget More Info Text: <%= f.text_field 'moreinfo' %></p></div>
+
+<div class="field" id="widget_jql" <% if ["Number", "Assignee Table", "Components Table", "Line Chart", "Meter"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+<p>Widget JQL Search: <%= f.text_area 'jql', size: "87x6" %></p></div>
+
+<div class="field" id="widget_releaseversion" <% if ["Number", "Assignee Table", "Components Table", "Line Chart", "Meter"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+<p>Widget Release Version for JQL Search: <%= f.text_field 'releaseversion'%></p></div>
+
+<div class="field" id="widget_releasebranch" <% if ["Number", "Assignee Table", "Components Table", "Line Chart", "Meter"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+<p>Widget Release Branch for JQL Search: <%= f.text_field 'releasebranch' %></p></div>
+
+<div class="field" id="widget_datatext" <% if ["Text"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+<p>Widget Text Data: <%= f.text_field  'datatext' %></p></div>
+
+<div class="field" id="widget_timelinedata" <% if ["Timeline"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+<p>Widget Timeline Data: <%= f.text_field  'timelinedata' %></p></div>
+
+<div class="field" id="widget_dateend" <% if ["Countdown"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+<p>Widget Countdown Date End: <%= f.text_field  'dateend' %></p></div>
+
+<div class="field" id="widget_jobname" <% if ["Build Status Teamcity", "Build Status Solano", "Build Status Jenkins", "Pie Chart"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+<p>Widget Jobname: <%= f.text_field  'jobname' %></p></div>
+
+<div class="field" id="widget_filterby" <% if ["Assignee Table"].exclude?(widgetTypeText) %>style="display:none;"<% end %>>
+<p>Widget Filter By: <%= f.text_field  'filterby' %></p></div>
+
+<p>Dashboard: <%= f.collection_select :dashboard_id, Dashboard.all, :id, :release %></p>
+
+
+<%= f.submit "Save changes" %>
+<% end %>
+
+<%= link_to 'Back', {:controller => 'dashboard', :action => 'list' }%>
+
+<hr />
+
+<p><%= link_to "Dashboard List", {:controller => 'dashboard', :action => 'list' }%></p>

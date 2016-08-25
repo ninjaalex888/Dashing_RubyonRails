@@ -1,0 +1,21 @@
+
+<h3>User</h3>
+<p>Name: <%= @user.name if @user.name %> </p>
+<p>Id: <%=@user.id if @user.id %> </p>
+<%if @user.id==session[:id]%>
+<ul id = "dashboards">
+<% @user.dashboards.each do |c|%>
+	<li>
+   <%= link_to c.release, {:action => 'show', :controller=>'dashboard', :id => c.id} %>
+   <b> <%= link_to 'Edit', {:action => 'edit', :controller=>'dashboard', :id => c.id} %></b>
+   <b> <%= link_to "Delete", {:action => 'delete', :controller=>'dashboard', :id => c.id},
+      :confirm => "Are you sure you want to delete this item?" %></b>
+
+   <b><%= link_to "View ", "/dashing/dashboards/dashboard?id=" + c.id.to_s, data: { confirm: "Are you sure?" } %></b>
+
+	</li>
+<%end%>
+</ul>
+<%else%>
+<p>you are impersonator?</p>
+<%end%>

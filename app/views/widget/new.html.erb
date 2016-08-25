@@ -1,0 +1,877 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+  $(document).ready(function(){
+
+
+
+    <% WidgetTemplates.uniq.pluck(:widget_type).each do |e| %>
+        $("#widget_<%= e %>").hide();
+    <% end %>
+
+    <% widgetDataFields = Widget.column_names - ["id", "dashboard_id", "widget_typeid", "widget_templateid", "title"]%> 
+
+    <% widgetDataFields.each do |f| %>
+        $("#widget_<%= f %>").hide();
+    <% end %>
+
+    <% widgetPreviews = WidgetTypes.pluck(:widget_type_html).each do |h| %> 
+        $("#widget_<%= h %>_preview").hide();
+    <% end %> 
+
+    $('#widget_type').on('change', function() {
+      
+      if ( $(this).children().val() == 1)
+      {
+        $("#widget_Number").show();
+        $("#widget_number_preview").show();
+
+        $("#widget_jql").show();
+        $("#widget_releasebranch").show();
+        $("#widget_releaseversion").show();
+        $("#widget_moreinfo").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+
+        $("#widget_Timeline").hide();
+        $("#widget_Text").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Meter").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusSolano").hide();
+        $("#widget_BuildStatusJenkins").hide();
+
+        $("#widget_timeline_preview").hide();
+        $("#widget_text_preview").hide();
+        $("#widget_assigneetable_preview").hide();
+        $("#widget_componentstable_preview").hide();
+        $("#widget_linechart_preview").hide();
+        $("#widget_meter_preview").hide();
+        $("#widget_countdown_preview").hide();
+        $("#widget_buildstatusteamcity_preview").hide();
+        $("#widget_buildstatussolano_preview").hide();
+        $("#widget_buildstatusjenkins_preview").hide();
+        $("#widget_githubstatus_preview").hide();
+        $("#widget_columnchart_preview").hide();
+        $("#widget_piechart_preview").hide();
+        $("#widget_jenkinsnumber_preview").hide();
+      }
+
+      else if ( $(this).children().val() == 2)
+      {
+        $("#widget_Timeline").show();
+        $("#widget_timeline_preview").show();
+
+        $("#widget_jql").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_moreinfo").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").show();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+
+        $("#widget_Number").hide();
+        $("#widget_Text").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Meter").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusSolano").hide();
+        $("#widget_BuildStatusJenkins").hide();
+
+        $("#widget_number_preview").hide();
+        $("#widget_text_preview").hide();
+        $("#widget_assigneetable_preview").hide();
+        $("#widget_componentstable_preview").hide();
+        $("#widget_linechart_preview").hide();
+        $("#widget_meter_preview").hide();
+        $("#widget_countdown_preview").hide();
+        $("#widget_buildstatusteamcity_preview").hide();
+        $("#widget_buildstatussolano_preview").hide();
+        $("#widget_buildstatusjenkins_preview").hide();
+        $("#widget_githubstatus_preview").hide();
+        $("#widget_columnchart_preview").hide();
+        $("#widget_piechart_preview").hide();
+        $("#widget_jenkinsnumber_preview").hide();
+      }
+
+      else if ( $(this).children().val() == 3)
+      {
+        $("#widget_Text").show();
+        $("#widget_text_preview").show();
+
+        $("#widget_jql").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_moreinfo").show();
+        $("#widget_datatext").show();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+
+        $("#widget_Number").hide();
+        $("#widget_Timeline").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Meter").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusSolano").hide();
+        $("#widget_BuildStatusJenkins").hide();
+
+        $("#widget_number_preview").hide();
+        $("#widget_timeline_preview").hide();
+        $("#widget_assigneetable_preview").hide();
+        $("#widget_componentstable_preview").hide();
+        $("#widget_linechart_preview").hide();
+        $("#widget_meter_preview").hide();
+        $("#widget_countdown_preview").hide();
+        $("#widget_buildstatusteamcity_preview").hide();
+        $("#widget_buildstatussolano_preview").hide();
+        $("#widget_buildstatusjenkins_preview").hide();
+        $("#widget_githubstatus_preview").hide();
+        $("#widget_columnchart_preview").hide();
+        $("#widget_piechart_preview").hide();
+        $("#widget_jenkinsnumber_preview").hide();
+      }
+
+      else if ( $(this).children().val() == 4)
+      {
+        $("#widget_AssigneeTable").show();
+        $("#widget_assigneetable_preview").show();
+
+        $("#widget_jql").show();
+        $("#widget_releasebranch").show();
+        $("#widget_releaseversion").show();
+        $("#widget_moreinfo").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").show();
+
+        $("#widget_Number").hide();
+        $("#widget_Text").hide();
+        $("#widget_Timeline").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Meter").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusSolano").hide();
+        $("#widget_BuildStatusJenkins").hide();
+
+        $("#widget_number_preview").hide();
+        $("#widget_timeline_preview").hide();
+        $("#widget_text_preview").hide();
+        $("#widget_componentstable_preview").hide();
+        $("#widget_linechart_preview").hide();
+        $("#widget_meter_preview").hide();
+        $("#widget_countdown_preview").hide();
+        $("#widget_buildstatusteamcity_preview").hide();
+        $("#widget_buildstatussolano_preview").hide();
+        $("#widget_buildstatusjenkins_preview").hide();
+        $("#widget_githubstatus_preview").hide();
+        $("#widget_columnchart_preview").hide();
+        $("#widget_piechart_preview").hide();
+        $("#widget_jenkinsnumber_preview").hide();
+      }
+      else if ( $(this).children().val() == 5)
+      {
+        $("#widget_ComponentsTable").show();
+        $("#widget_componentstable_preview").show();
+
+        $("#widget_jql").show();
+        $("#widget_releasebranch").show();
+        $("#widget_releaseversion").show();
+        $("#widget_moreinfo").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+
+        $("#widget_Number").hide();
+        $("#widget_Text").hide();
+        $("#widget_Timeline").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Meter").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusSolano").hide();
+        $("#widget_BuildStatusJenkins").hide();
+
+        $("#widget_number_preview").hide();
+        $("#widget_timeline_preview").hide();
+        $("#widget_text_preview").hide();
+        $("#widget_assigneetable_preview").hide();
+        $("#widget_linechart_preview").hide();
+        $("#widget_meter_preview").hide();
+        $("#widget_countdown_preview").hide();
+        $("#widget_buildstatusteamcity_preview").hide();
+        $("#widget_buildstatussolano_preview").hide();
+        $("#widget_buildstatusjenkins_preview").hide();
+        $("#widget_githubstatus_preview").hide();
+        $("#widget_columnchart_preview").hide();
+        $("#widget_piechart_preview").hide();
+        $("#widget_jenkinsnumber_preview").hide();
+      }
+      else if ( $(this).children().val() == 6)
+      {
+        $("#widget_LineChart").show();
+        $("#widget_linechart_preview").show();
+
+        $("#widget_jql").show();
+        $("#widget_releasebranch").show();
+        $("#widget_releaseversion").show();
+        $("#widget_moreinfo").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+
+        $("#widget_Number").hide();
+        $("#widget_Text").hide();
+        $("#widget_Timeline").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_Meter").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusSolano").hide();
+        $("#widget_BuildStatusJenkins").hide();
+
+        $("#widget_number_preview").hide();
+        $("#widget_timeline_preview").hide();
+        $("#widget_text_preview").hide();
+        $("#widget_assigneetable_preview").hide();
+        $("#widget_componentstable_preview").hide();
+        $("#widget_meter_preview").hide();
+        $("#widget_countdown_preview").hide();
+        $("#widget_buildstatusteamcity_preview").hide();
+        $("#widget_buildstatussolano_preview").hide();
+        $("#widget_buildstatusjenkins_preview").hide();
+        $("#widget_githubstatus_preview").hide();
+        $("#widget_columnchart_preview").hide();
+        $("#widget_piechart_preview").hide();
+        $("#widget_jenkinsnumber_preview").hide();
+      }
+      else if ( $(this).children().val() == 7)
+      {
+        $("#widget_Meter").show();
+        $("#widget_meter_preview").show();
+
+        $("#widget_jql").show();
+        $("#widget_releasebranch").show();
+        $("#widget_releaseversion").show();
+        $("#widget_moreinfo").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+
+        $("#widget_Number").hide();
+        $("#widget_Text").hide();
+        $("#widget_Timeline").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusSolano").hide();
+        $("#widget_BuildStatusJenkins").hide();
+
+        $("#widget_number_preview").hide();
+        $("#widget_timeline_preview").hide();
+        $("#widget_text_preview").hide();
+        $("#widget_assigneetable_preview").hide();
+        $("#widget_componentstable_preview").hide();
+        $("#widget_linechart_preview").hide();
+        $("#widget_countdown_preview").hide();
+        $("#widget_buildstatusteamcity_preview").hide();
+        $("#widget_buildstatussolano_preview").hide();
+        $("#widget_buildstatusjenkins_preview").hide();
+        $("#widget_githubstatus_preview").hide();
+        $("#widget_columnchart_preview").hide();
+        $("#widget_piechart_preview").hide();
+        $("#widget_jenkinsnumber_preview").hide();
+      }
+      else if ( $(this).children().val() == 8)
+      {
+        $("#widget_Countdown").show();
+        $("#widget_countdown_preview").show();
+
+        $("#widget_jql").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_moreinfo").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").show();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+
+        $("#widget_Number").hide();
+        $("#widget_Text").hide();
+        $("#widget_Timeline").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Meter").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusSolano").hide();
+        $("#widget_BuildStatusJenkins").hide();
+
+        $("#widget_number_preview").hide();
+        $("#widget_timeline_preview").hide();
+        $("#widget_text_preview").hide();
+        $("#widget_assigneetable_preview").hide();
+        $("#widget_componentstable_preview").hide();
+        $("#widget_linechart_preview").hide();
+        $("#widget_meter_preview").hide();
+        $("#widget_buildstatusteamcity_preview").hide();
+        $("#widget_buildstatussolano_preview").hide();
+        $("#widget_buildstatusjenkins_preview").hide();
+        $("#widget_githubstatus_preview").hide();
+        $("#widget_columnchart_preview").hide();
+        $("#widget_piechart_preview").hide();
+        $("#widget_jenkinsnumber_preview").hide();
+      }
+      else if ( $(this).children().val() == 9)
+      {
+        $("#widget_BuildStatusTeamcity").show();
+        $("#widget_buildstatusteamcity_preview").show();
+
+        $("#widget_jql").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_moreinfo").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").show();
+        $("#widget_filterby").hide();
+
+        $("#widget_Number").hide();
+        $("#widget_Text").hide();
+        $("#widget_Timeline").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Meter").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusSolano").hide();
+        $("#widget_BuildStatusJenkins").hide();
+
+        $("#widget_number_preview").hide();
+        $("#widget_timeline_preview").hide();
+        $("#widget_text_preview").hide();
+        $("#widget_assigneetable_preview").hide();
+        $("#widget_componentstable_preview").hide();
+        $("#widget_linechart_preview").hide();
+        $("#widget_meter_preview").hide();
+        $("#widget_countdown_preview").hide();
+        $("#widget_buildstatussolano_preview").hide();
+        $("#widget_buildstatusjenkins_preview").hide();
+        $("#widget_githubstatus_preview").hide();
+        $("#widget_columnchart_preview").hide();
+        $("#widget_piechart_preview").hide();
+        $("#widget_jenkinsnumber_preview").hide();
+      }
+      else if ( $(this).children().val() == 10)
+      {
+        $("#widget_BuildStatusSolano").show();
+        $("#widget_buildstatussolano_preview").show();
+
+        $("#widget_jql").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_moreinfo").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").show();
+        $("#widget_filterby").hide();
+
+        $("#widget_Number").hide();
+        $("#widget_Text").hide();
+        $("#widget_Timeline").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Meter").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusJenkins").hide();
+
+        $("#widget_number_preview").hide();
+        $("#widget_timeline_preview").hide();
+        $("#widget_text_preview").hide();
+        $("#widget_assigneetable_preview").hide();
+        $("#widget_componentstable_preview").hide();
+        $("#widget_linechart_preview").hide();
+        $("#widget_meter_preview").hide();
+        $("#widget_countdown_preview").hide();
+        $("#widget_buildstatusteamcity_preview").hide();
+        $("#widget_buildstatusjenkins_preview").hide();
+        $("#widget_githubstatus_preview").hide();
+        $("#widget_columnchart_preview").hide();
+        $("#widget_piechart_preview").hide();
+        $("#widget_jenkinsnumber_preview").hide();
+      }
+      else if ( $(this).children().val() == 11)
+      {
+        $("#widget_BuildStatusJenkins").show();
+        $("#widget_buildstatusjenkins_preview").show();
+
+        $("#widget_jql").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_moreinfo").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").show();
+        $("#widget_filterby").hide();
+
+        $("#widget_Number").hide();
+        $("#widget_Text").hide();
+        $("#widget_Timeline").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Meter").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusSolano").hide();
+
+        $("#widget_number_preview").hide();
+        $("#widget_timeline_preview").hide();
+        $("#widget_text_preview").hide();
+        $("#widget_assigneetable_preview").hide();
+        $("#widget_componentstable_preview").hide();
+        $("#widget_linechart_preview").hide();
+        $("#widget_meter_preview").hide();
+        $("#widget_countdown_preview").hide();
+        $("#widget_buildstatusteamcity_preview").hide();
+        $("#widget_buildstatussolano_preview").hide();
+        $("#widget_githubstatus_preview").hide();
+        $("#widget_columnchart_preview").hide();
+        $("#widget_piechart_preview").hide();
+        $("#widget_jenkinsnumber_preview").hide();
+      }
+      else if ( $(this).children().val() == 12)
+      {
+        $("#widget_GitHubStatus").show();
+        $("#widget_githubstatus_preview").show();
+
+        $("#widget_jql").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_moreinfo").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+
+        $("#widget_Number").hide();
+        $("#widget_Text").hide();
+        $("#widget_Timeline").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Meter").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusSolano").hide();
+
+        $("#widget_number_preview").hide();
+        $("#widget_timeline_preview").hide();
+        $("#widget_text_preview").hide();
+        $("#widget_assigneetable_preview").hide();
+        $("#widget_componentstable_preview").hide();
+        $("#widget_linechart_preview").hide();
+        $("#widget_meter_preview").hide();
+        $("#widget_countdown_preview").hide();
+        $("#widget_buildstatusteamcity_preview").hide();
+        $("#widget_buildstatussolano_preview").hide();
+        $("#widget_buildstatusjenkins_preview").hide();
+        $("#widget_columnchart_preview").hide();
+        $("#widget_piechart_preview").hide();
+        $("#widget_jenkinsnumber_preview").hide();
+
+
+
+      }
+      else if ( $(this).children().val() == 13)
+      {
+        $("#widget_ColumnChart").show();
+        $("#widget_columnchart_preview").show();
+
+        $("#widget_jql").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_moreinfo").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").show();
+        $("#widget_filterby").hide();
+
+        $("#widget_Number").hide();
+        $("#widget_Text").hide();
+        $("#widget_Timeline").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Meter").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusSolano").hide();
+        $("#widget_GitHubStatus").hide();
+
+        $("#widget_number_preview").hide();
+        $("#widget_timeline_preview").hide();
+        $("#widget_text_preview").hide();
+        $("#widget_assigneetable_preview").hide();
+        $("#widget_componentstable_preview").hide();
+        $("#widget_linechart_preview").hide();
+        $("#widget_meter_preview").hide();
+        $("#widget_countdown_preview").hide();
+        $("#widget_buildstatusteamcity_preview").hide();
+        $("#widget_buildstatussolano_preview").hide();
+        $("#widget_buildstatusjenkins_preview").hide();
+        $("#widget_githubstatus_preview").hide();
+        $("#widget_piechart_preview").hide();
+        $("#widget_jenkinsnumber_preview").hide();
+
+      }
+      else if ( $(this).children().val() == 14)
+      {
+        $("#widget_JenkinsNumber").show();
+        $("#widget_jenkinsnumber_preview").show();
+
+        $("#widget_jql").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_moreinfo").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").show();
+        $("#widget_filterby").hide();
+
+        $("#widget_Number").hide();
+        $("#widget_Text").hide();
+        $("#widget_Timeline").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Meter").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusSolano").hide();
+        $("#widget_GitHubStatus").hide();
+
+        $("#widget_number_preview").hide();
+        $("#widget_timeline_preview").hide();
+        $("#widget_text_preview").hide();
+        $("#widget_assigneetable_preview").hide();
+        $("#widget_componentstable_preview").hide();
+        $("#widget_linechart_preview").hide();
+        $("#widget_meter_preview").hide();
+        $("#widget_countdown_preview").hide();
+        $("#widget_buildstatusteamcity_preview").hide();
+        $("#widget_buildstatussolano_preview").hide();
+        $("#widget_buildstatusjenkins_preview").hide();
+        $("#widget_githubstatus_preview").hide();
+        $("#widget_columnchart_preview").hide();
+        $("#widget_piechart_preview").hide();
+
+      }
+      else if ( $(this).children().val() == 15)
+      {
+        $("#widget_PieChart").show();
+        $("#widget_piechart_preview").show();
+
+        $("#widget_jql").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_moreinfo").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").show();
+        $("#widget_filterby").hide();
+
+        $("#widget_Number").hide();
+        $("#widget_Text").hide();
+        $("#widget_Timeline").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Meter").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusSolano").hide();
+        $("#widget_GitHubStatus").hide();
+
+        $("#widget_number_preview").hide();
+        $("#widget_timeline_preview").hide();
+        $("#widget_text_preview").hide();
+        $("#widget_assigneetable_preview").hide();
+        $("#widget_componentstable_preview").hide();
+        $("#widget_linechart_preview").hide();
+        $("#widget_meter_preview").hide();
+        $("#widget_countdown_preview").hide();
+        $("#widget_buildstatusteamcity_preview").hide();
+        $("#widget_buildstatussolano_preview").hide();
+        $("#widget_githubstatus_preview").hide();
+        $("#widget_columnchart_preview").hide();
+        $("#widget_jenkinsnumber_preview").hide();
+
+      }
+      else
+      {
+        
+        $("#widget_Number").hide();
+        $("#widget_Text").hide();
+        $("#widget_Timeline").hide();
+        $("#widget_AssigneeTable").hide();
+        $("#widget_ComponentsTable").hide();
+        $("#widget_LineChart").hide();
+        $("#widget_Meter").hide();
+        $("#widget_Countdown").hide();
+        $("#widget_BuildStatusTeamcity").hide();
+        $("#widget_BuildStatusSolano").hide();
+        $("#widget_BuildStatusJenkins").hide();
+
+        $("#widget_moreinfo").hide();
+        $("#widget_jql").hide();
+        $("#widget_releasebranch").hide();
+        $("#widget_releaseversion").hide();
+        $("#widget_datatext").hide();
+        $("#widget_timelinedata").hide();
+        $("#widget_dateend").hide();
+        $("#widget_jobname").hide();
+        $("#widget_filterby").hide();
+      }
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+
+  <% WidgetTemplates.uniq.pluck(:widget_type).each do |f| %>
+
+    $('#templateSelect<%= f %>').on('change', function() {
+
+      <% WidgetTemplates.where(:widget_type => f ).each do |e| %>
+
+        
+        if ( $('#templateSelect<%= f %> :selected').text() == '<%= e.title %>') 
+        {
+            $("#widgetTitle").val("<%= e.title %>");
+            $("#widgetJqlText").html("<%= e.jql %>").val();
+            $("#widgetMoreinfo").val("<%= e.moreinfo %>");
+            $("#widgetDatatext").val("<%= e.datatext %>");
+            $("#widgetTimelinedata").html("<%= e.timelinedata %>").val();
+            $("#widgetDateend").val("<%= e.dateend %>");;
+            $("#widgetJobname").val("<%= e.jobname %>");
+            $("#widgetFilterby").val("<%= e.filterby %>");
+
+
+            $("#widgetReleaseversion").on("change, keyup", function (){
+
+                var releaseVersion = document.getElementById('widgetReleaseversion').value;
+                var releaseBranch = document.getElementById('widgetReleasebranch').value;
+
+                if(!releaseBranch.match(/\S/)) {
+                    var jqlSearch = unescape("<%= e.jql %>")
+
+                    jqlSearch = jqlSearch.replace(/{VERSION}/g, releaseVersion)
+                    jqlSearch = jqlSearch.replace(/{BRANCH}/g, " ")
+
+                    $("#widgetJqlText").html(jqlSearch).val();
+
+                
+                } else {
+                    var jqlSearch = unescape("<%= e.jql %>")
+
+                    jqlSearch = jqlSearch.replace(/{VERSION}/g, releaseVersion)
+                    jqlSearch = jqlSearch.replace(/{BRANCH}/g, "OR \"Target Branch\" = " + releaseBranch + " ")
+
+                    $("#widgetJqlText").html(jqlSearch).val();
+
+                }
+
+                
+
+            });
+
+            $("#widgetReleasebranch").on("change, keyup", function (){
+
+                var releaseVersion = document.getElementById('widgetReleaseversion').value;
+                var releaseBranch = document.getElementById('widgetReleasebranch').value;
+
+                if(!releaseVersion.match(/\S/)) {
+                    var jqlSearch = unescape("<%= e.jql %>")
+
+                    jqlSearch = jqlSearch.replace(/{BRANCH}/g, "OR \"Target Branch\" = " + releaseBranch + " ")
+
+                    $("#widgetJqlText").html(jqlSearch).val();
+
+                } else {
+                    var jqlSearch = unescape("<%= e.jql %>")
+
+                    jqlSearch = jqlSearch.replace(/{VERSION}/g, releaseVersion)
+                    jqlSearch = jqlSearch.replace(/{BRANCH}/g, "OR \"Target Branch\" = " + releaseBranch + " ")
+
+                    $("#widgetJqlText").html(jqlSearch).val();
+                }
+
+            });
+
+
+          
+        }
+
+      <% end %>
+
+    });
+  
+  <% end %>
+
+});
+</script>
+
+
+<h2>Add New Widget</h2>
+
+<%= form_tag :action => 'create' do %>
+
+<p><label for = "widget_widget_type">Widget Type</label>:
+<div class="field" id="widget_type">
+<%= collection_select(:widgets, :widget_typeid, @widget_types, :id, :widget_type, prompt: true) %></p>
+</div>
+
+<% WidgetTemplates.uniq.pluck(:widget_type).each do |c| %>
+
+  <div class="field" id="widget_<%= c %>">
+  <p><label for = "widget_widget_template"><%= c %> Widget  Templates</label>:
+  <%= collection_select(:widgets, :widget_templateid, WidgetTemplates.where(:widget_type => c ), :id, :title, {prompt: true}, {:id=>'templateSelect' + c}) %></p>
+  </div>
+ 
+<% end %>
+
+<p><label for = "widget_title">Widget Title</label>:
+<%= text_field 'widgets', 'title', placeholder: "Issues Open", id: 'widgetTitle' %></p>
+
+<div class="field" id="widget_moreinfo">
+<p><label for = "widget_moreinfo">Widget More Info Text</label>:
+<%= text_field 'widgets', 'moreinfo', placeholder: "more info text", id: 'widgetMoreinfo' %></p>
+</div>
+
+<div class="field" id="widget_releaseversion">
+<p><label for = "widget_releaseversion">Release Version for JQL Search</label>:
+<%= text_field 'widgets', 'releaseversion', placeholder: "15.4.0", id: 'widgetReleaseversion'  %></p>
+</div>
+
+<div class="field" id="widget_releasebranch">
+<p><label for = "widget_releasebranch">Release Branch for JQL Search</label>:
+<%= text_field 'widgets', 'releasebranch', placeholder: "{Optional}", id: 'widgetReleasebranch'  %></p>
+</div>
+
+<div class="field" id="widget_jql">
+<p><label for = "widget_jql">Widget JQL
+ Search</label>:
+<%= text_area 'widgets', 'jql', size: "87x6", id: 'widgetJqlText'  %></p>
+</div>
+
+<div class="field" id="widget_datatext">
+<p><label for = "widget_datatext">Widget Text Data</label>:
+<%= text_field 'widgets', 'datatext', placeholder: "widget text data", id: 'widgetDatatext'  %></p>
+</div>
+
+<div class="field" id="widget_timelinedata">
+<p><label for = "widget_timelinedata">Widget Timeline Data</label>:
+<%= text_area 'widgets', 'timelinedata', placeholder: '{"events":[{"name":"Code Freeze","date":"Jul 1, 2016","background": "lightblue"},{"name":"System Test Start","date": "Jul 18, 2016","background": "white"},{"name":"System Test Complete","date": "Aug 12, 2016", "background": "lightblue"} ,{"name":"Hardening Sprint Start","date": "Aug 15, 2016","background": "white"}]}', size: "73x8" ,id: 'widgetTimelinedata'  %></p>
+</div>
+
+<div class="field" id="widget_dateend">
+<p><label for = "widget_dateend">Widget Countdown Date End</label>:
+<%= text_field 'widgets', 'dateend', placeholder: "17-June-2016 17:00:00", id: 'widgetDateend'  %></p>
+</div>
+
+<div class="field" id="widget_jobname">
+<p><label for = "widget_jobname">Widget Jobname</label>:
+<%= text_field 'widgets', 'jobname', placeholder: "dev-master", id: 'widgetJobname'  %></p>
+</div>
+
+<div class="field" id="widget_filterby">
+<p><label for = "widget_filterby">Widget Filter By</label>:
+<%= text_field 'widgets', 'filterby', placeholder: "customfield_13100", id: 'widgetFilterby'  %></p>
+</div>
+
+<p><label for = "widget_dashboard_id">Dashboard</label>:
+<%= collection_select(:widgets, :dashboard_id, @dashboards, :id, :release, prompt: true) %></p>
+
+
+<% widgetPreviews = WidgetTypes.pluck(:widget_type_html).each do |h| %> 
+        <div class="field" id="widget_<%= h%>_preview">
+            <h2>  Preview </h2>
+            <img src="/assets/<%= h %>Preview.png" alt="<%= h %> preview" />
+        </div>
+    <% end %>
+
+<%= submit_tag "Create" %>
+
+<% end %>
+
+
+<button onClick="eraseText()">Clear Fields</button>
+
+<script> 
+
+function eraseText() {
+
+        $("#widgetTitle").val("");
+        $("#widgetJqlText").html("").val();
+        $("#widgetReleasedate").val("");
+        $("#widgetReleasebranch").val("");
+        $("#widgetMoreinfo").val("");
+        $("#widgetDatatext").val("");
+        $("#widgetTimelinedata").val("");
+        $("#widgetDateend").val("");
+        $("#widgetJobname").val("");
+        $("#widgetFilterby").val("");
+        
+}
+</script>
+
+<%= link_to 'Back', {:controller => 'dashboard', :action => 'list' }%>
+
+<hr />
+
+<p><%= link_to "Dashboard List", {:controller => 'dashboard', :action => 'list' }%></p>
+
+
+
+

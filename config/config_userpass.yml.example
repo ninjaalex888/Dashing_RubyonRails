@@ -1,0 +1,15 @@
+solano:
+ user: ''
+ pass: ''
+teamcity:
+ user: ''
+ pass: ''
+jira:
+ user: ''
+ pass: ''
+jenkins:
+ user: ''
+ pass: ''
+testrail:
+ user: ''
+ pass: ''

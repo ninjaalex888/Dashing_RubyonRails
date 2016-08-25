@@ -1,0 +1,59 @@
+Batman.Filters.dateFormat = (date) ->
+  if moment(date).isValid() then moment(date).fromNow() else date
+
+Batman.Filters.durationFormat = (duration) ->
+  if /^[0-9]*$/.test(duration) then moment.duration(duration, 'seconds').humanize() else duration
+
+class Dashing.BuildWindow extends Dashing.Widget
+  `var health`
+  ready: ->
+    `this.node.querySelector("#mylink")['href'] = this.node.getAttribute("urlLink")`  
+    `this.node.querySelector("#status").textContent = this.node.getAttribute("status")`
+    `this.node.querySelector("#name").textContent= this.node.getAttribute("name")`
+    `this.node.querySelector("#updated").textContent = this.node.getAttribute("updated")`
+    `this.node.querySelector("#msg>span").textContent = this.node.getAttribute("msg")`
+
+    if `this.node.getAttribute("status")` == 'Failed'
+      $(@node).css('background-color', '#a73737')
+    else if `this.node.getAttribute("status")` == 'Successful'
+      $(@node).css('background-color', '#03A06E')
+
+    
+  onData: (data) ->
+    `this.node.querySelector("#status").textContent = data.status`
+    `this.node.querySelector("#name").textContent= data.name`
+    `this.node.querySelector("#updated").textContent = data.updated`
+    `this.node.querySelector("#msg>span").textContent = data.msg`
+    link = @get('urlLink')
+    if data.status == 'Failed'
+      $(@node).css('background-color', '#a73737')
+    else if data.status == 'Successful'
+      $(@node).css('background-color', '#03A06E')
+    `this.node.querySelector("#mylink")['href'] = link`
+    @accessor 'tc',->
+      @get('tc')==1
+    @accessor 'jk',->
+      @get('jk')==1
+    @accessor 'so', ->
+      @get('so')==1
+
+  @accessor 'image', ->
+    if !@get("health")?
+      `health=this.node.getAttribute("health")`
+    else
+      health=@get("health")
+    if (health >= 80) then '/assets/health-80plus.svg'
+    else '/assets/health-00to19.svg'
+
+  @accessor 'show-health', ->
+    if !@get("health")?
+      `health=this.node.getAttribute("health")`
+    else
+      health=@get("health")
+    health >= 0 
+
+    
+
+
+
+

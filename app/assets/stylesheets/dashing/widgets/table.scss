@@ -1,0 +1,256 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+/*$background-color:  #2A455C;*/
+$background-color:  #b0b9e8;
+$value-color:       #ffffff;
+/*$value-color:       #7582e3;*/
+
+$title-color:       rgba(255, 255, 255, 0.7);
+$label-color:       rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
+
+$th-background-color:       #5974c0;
+$tr-odd-background-color:   #5e8cba;
+$tr-even-background-color:  #7582a3;
+$tr-hover-background-color: #000000;
+
+// ----------------------------------------------------------------------------
+// Widget-table styles
+// ----------------------------------------------------------------------------
+.widget-table {
+
+  background-color: $background-color;
+  border-radius: 15px;
+
+
+  /*.title {
+    color: $title-color;
+  }*/
+
+  .value {
+    margin-left: 12px;
+    font-weight: 500;
+    color: $value-color;
+  }
+
+  .updated-at {
+    color: #000000;
+    /*rgba(0, 0, 0, 0.3);*/
+  }
+
+  .more-info {
+    color: $moreinfo-color;
+  }
+
+  // Specify a table border for the table, header and cell elements
+   table { border-collapse: collapse; vertical-align: top;}
+  // table, th, td { border: 1px solid black; }
+
+  // Just a border around the table, nothing else
+  // table { border: 1px solid black; }
+
+  // Set the background color for the header row
+  th { background-color: $th-background-color; }
+
+  // If you want a stripped table set the color for both odd and even rows
+  tr:nth-child(odd) { background-color: $tr-odd-background-color; }
+  tr:nth-child(even) { background-color: $tr-even-background-color; }
+
+  // Highlight table rows on mouse over
+  tr:hover { background-color: $tr-hover-background-color; }
+
+  td {
+    margin: 0 15px;
+    /*font: 12;*/
+    text-align: center;
+    color: $label-color;
+    vertical-align: top;
+  }
+
+  .left {
+    text-align: left;
+  }
+  .right {
+    text-align: right;
+  }
+
+
+  .tableContainer { 
+        clear: both;
+        border: 0px solid #963;
+        height: 525px;
+        overflow: auto; 
+        width: 900px;
+}
+  
+
+}
+
+
+/*<style type="text/css">*/
+
+/* Terence Ordona, portal[AT]imaputz[DOT]com         */
+/* http://creativecommons.org/licenses/by-sa/2.0/    */
+/* begin some basic styling here                     */
+/*body {
+        background: #FFF;
+        color: #000;
+        font: normal normal 12px Verdana, Geneva, Arial, Helvetica, sans-serif;
+        margin: 10px;
+        padding: 0
+}
+table, td, a {
+        color: #000;
+        font: normal normal 12px Verdana, Geneva, Arial, Helvetica, sans-serif
+}
+h1 {
+        font: normal normal 18px Verdana, Geneva, Arial, Helvetica, sans-serif;
+        margin: 0 0 5px 0
+}
+h2 {
+        font: normal normal 16px Verdana, Geneva, Arial, Helvetica, sans-serif;
+        margin: 0 0 5px 0
+}*/
+/*h3 {
+        font: normal normal 13px Verdana, Geneva, Arial, Helvetica, sans-serif;
+        color: #008000;
+        margin: 0 0 15px 0
+}*/
+/* end basic styling                                 */
+/* define height and width of scrollable area. Add 16px to width for scrollbar          */
+/*div.tableContainer {
+        clear: both;
+        border: 1px solid #963;
+        height: 285px;
+        overflow: auto;
+        width: 756px
+}*/
+/* Reset overflow value to hidden for all non-IE browsers. */
+/*html>body div.tableContainer {
+        overflow: hidden;
+        width: 756px
+}*/
+/* define width of table. IE browsers only                 */
+/*div.tableContainer table {
+        float: left;
+        width: 740px
+}*/
+/* define width of table. Add 16px to width for scrollbar.           */
+/* All other non-IE browsers.                                        */
+/*html>body div.tableContainer table {
+        width: 756px
+}*/
+/* set table header to a fixed position. WinIE 6.x only                                       */
+/* In WinIE 6.x, any element with a position property set to relative and is a child of       */
+/* an element that has an overflow property set, the relative value translates into fixed.    */
+/* Ex: parent element DIV with a class of tableContainer has an overflow property set to auto */
+/*thead.fixedHeader tr {
+        position: relative
+}*/
+/* set THEAD element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+/*html>body thead.fixedHeader tr {
+        display: block
+}*/
+/* make the TH elements pretty */
+/*thead.fixedHeader th {
+        background: #C96;
+        border-left: 1px solid #EB8;
+        border-right: 1px solid #B74;
+        border-top: 1px solid #EB8;
+        font-weight: normal;
+        padding: 4px 3px;
+        text-align: left
+}*/
+/* make the A elements pretty. makes for nice clickable headers                */
+/*thead.fixedHeader a, thead.fixedHeader a:link, thead.fixedHeader a:visited {
+        color: #FFF;
+        display: block;
+        text-decoration: none;
+        width: 100%
+}*/
+/* make the A elements pretty. makes for nice clickable headers                */
+/* WARNING: swapping the background on hover may cause problems in WinIE 6.x   */
+/*thead.fixedHeader a:hover {
+        color: #FFF;
+        display: block;
+        text-decoration: underline;
+        width: 100%
+}*/
+/* define the table content to be scrollable                                              */
+/* set TBODY element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+/* induced side effect is that child TDs no longer accept width: auto                     */
+/*html>body tbody.scrollContent {
+        display: block;
+        height: 262px;
+        overflow: auto;
+        width: 100%
+}*/
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+/*tbody.scrollContent td, tbody.scrollContent tr.normalRow td {
+        background: #FFF;
+        border-bottom: none;
+        border-left: none;
+        border-right: 1px solid #CCC;
+        border-top: 1px solid #DDD;
+        padding: 2px 3px 3px 4px
+}
+tbody.scrollContent tr.alternateRow td {
+        background: #EEE;
+        border-bottom: none;
+        border-left: none;
+        border-right: 1px solid #CCC;
+        border-top: 1 px solid #DDD;
+        padding: 2px 3px 3px 4px
+}*/
+/* define width of TH elements: 1st, 2nd, and 3rd respectively.          */
+/* Add 16px to last TH for scrollbar padding. All other non-IE browsers. */
+/* http://www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors        */
+/*html>body thead.fixedHeader th {
+        width: 200px
+}
+html>body thead.fixedHeader th + th {
+        width: 240px
+}
+html>body thead.fixedHeader th + th + th {
+        width: 316px
+}*/
+/* define width of TD elements: 1st, 2nd, and 3rd respectively.          */
+/* All other non-IE browsers.                                            */
+/* http://www.w3.org/TR/REC-CSS2/selector.html#adjacent-selectors        */
+/*html>body tbody.scrollContent td {
+        width: 200px
+}
+html>body tbody.scrollContent td + td {
+        width: 240px
+}
+html>body tbody.scrollContent td + td + td {
+        width: 300px
+}
+*/
+/*</style>*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,208 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+.widget-build-window {
+  background-color: #999999;
+  border-radius: 15px;
+  /*.justify {
+    text-align:justify;
+  }
+  */ }
+  .widget-build-window .title {
+    color: rgba(255, 255, 255, 0.7); }
+  .widget-build-window .value {
+    color: white; }
+  .widget-build-window .more-info {
+    color: rgba(255, 255, 255, 0.7); }
+  .widget-build-window .updated-at {
+    color: rgba(0, 0, 0, 0.3); }
+  .widget-build-window .small {
+    font-size: 0.6em; }
+.widget-countdown {
+  background-color: #2a455c; }
+  .widget-countdown h2 {
+    font-size: 2em; }
+  .widget-countdown h1 {
+    font-size: 2em; }
+  .widget-countdown .countdown-time {
+    margin-top: 10px;
+    color: gold; }
+  .widget-countdown .before-more-info {
+    font-size: 15px;
+    position: absolute;
+    bottom: 52px;
+    left: 0;
+    right: 0; }
+.widget-github-status {
+  background: #2a455c url("/assets/invertocat.png") no-repeat center;
+  position: relative;
+  overflow: hidden; }
+  .widget-github-status.good {
+    color: #396; }
+  .widget-github-status.minor {
+    color: #f29d50; }
+  .widget-github-status.major {
+    color: #c30; }
+  .widget-github-status div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto; }
+  .widget-github-status #latest-message {
+    top: 25px;
+    margin: 0 5px; }
+    .widget-github-status #latest-message #message {
+      background: #ccc;
+      border-radius: 3px;
+      border: 1px solid #ccc; }
+      .widget-github-status #latest-message #message.good {
+        background: #eaf4ef;
+        border-color: #99ccb2; }
+      .widget-github-status #latest-message #message.minor {
+        background: #fdf5ed;
+        border-color: #f8cea7; }
+      .widget-github-status #latest-message #message.major {
+        background: #f9eae5;
+        border-color: #e5997f; }
+  .widget-github-status #github-logo {
+    bottom: 20px;
+    height: 54px;
+    width: 250px;
+    background-size: 100% !important; }
+    .widget-github-status #github-logo.good {
+      background: url("/assets/logo-good.png"); }
+    .widget-github-status #github-logo.minor {
+      background: url("/assets/logo-minor.png"); }
+    .widget-github-status #github-logo.major {
+      background: url("/assets/logo-major.png"); }
+  .widget-github-status .updated-at {
+    color: rgba(255, 255, 255, 0.7); }
+.widget-google-line {
+  background-color: #fb9618;
+  position: relative; }
+  .widget-google-line .title {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    right: 0px; }
+  .widget-google-line .chart {
+    position: float;
+    left: 0px;
+    top: 0px; }
+  .widget-google-line .more-info {
+    position: float; }
+.widget-google-pie {
+  background-color: #45b7e9;
+  position: relative; }
+  .widget-google-pie .title {
+    position: absolute;
+    color: black;
+    top: 5px;
+    left: 0px;
+    right: 0px; }
+  .widget-google-pie .chart {
+    position: absolute;
+    left: 0px;
+    top: 0px; }
+.widget-number1 {
+  background-color: #000000;
+  /*.title {
+    color: $title-color;
+  }*/ }
+  .widget-number1 .value {
+    color: white; }
+  .widget-number1 .change-rate {
+    font-weight: 500;
+    font-size: 30px;
+    color: white; }
+  .widget-number1 .more-info {
+    color: rgba(255, 255, 255, 0.7); }
+  .widget-number1 .updated-at {
+    color: #ffffff;
+    /*rgba(0, 0, 0, 0.3);*/ }
+/*$background-color:  #2A455C;*/
+/*$value-color:       #7582e3;*/
+.widget-table {
+  background-color: #b0b9e8;
+  /*.title {
+    color: $title-color;
+  }*/ }
+  .widget-table .value {
+    margin-left: 12px;
+    font-weight: 600;
+    color: white; }
+  .widget-table .updated-at {
+    color: #000000;
+    /*rgba(0, 0, 0, 0.3);*/ }
+  .widget-table .more-info {
+    color: rgba(255, 255, 255, 0.7); }
+  .widget-table table {
+    border-collapse: collapse;
+    vertical-align: top; }
+  .widget-table th {
+    background-color: #5974c0; }
+  .widget-table tr:nth-child(odd) {
+    background-color: #5e8cba; }
+  .widget-table tr:nth-child(even) {
+    background-color: #7582a3; }
+  .widget-table tr:hover {
+    background-color: black; }
+  .widget-table td {
+    margin: 0 15px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    vertical-align: top; }
+  .widget-table .left {
+    text-align: left; }
+  .widget-table .right {
+    text-align: right; }
+.widget-text {
+  background-color: #45b7e9; }
+  .widget-text h2 {
+    font-size: 2em; }
+  .widget-text h1 {
+    font-size: 2em; }
+  .widget-text .title {
+    color: white; }
+  .widget-text .more-info {
+    color: rgba(255, 255, 255, 0.7); }
+  .widget-text .updated-at {
+    color: rgba(255, 255, 255, 0.7); }
+  .widget-text.large h3 {
+    font-size: 65px; }
+.widget-timeline {
+  background-color: #4b4b4b;
+  padding-bottom: 70px; }
+  .widget-timeline .title {
+    color: rgba(255, 255, 255, 0.7); }
+  .widget-timeline .more-info {
+    color: rgba(255, 255, 255, 0.7); }
+  .widget-timeline .event-description {
+    fill: white;
+    font-size: 14px; }
+  .widget-timeline .event-description-date {
+    fill: white;
+    font-size: 12px; }
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+ */

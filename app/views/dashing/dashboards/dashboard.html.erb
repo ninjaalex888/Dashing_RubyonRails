@@ -1,0 +1,271 @@
+<meta http-equiv="refresh" content="60" />
+<% if Dashboard.find(params[:id]).layoutDash %>
+<% dashboardLayout = Dashboard.find(params[:id]).layoutDash %>
+<%= dashboardLayout.html_safe %>
+<% end %>
+
+<script type="text/javascript">
+
+Dashing.widget_base_dimensions = [465, 346]
+Dashing.numColumns = 4
+</script>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load("visualization", "1", {packages:["corechart"]});
+    </script>
+
+
+
+<% dashboard = Dashboard.find(params[:id]) %>
+
+<% widgets = dashboard.widgets %>
+
+<% widget_types = dashboard.widgets %>
+
+<% content_for :title do %>
+  <%= dashboard.release %>
+<% end %>
+
+<div class="gridster">
+  <ul>
+    <% if dashboard %>
+
+      <% dashboard.widgets.each do |c| %>
+
+        <% case c.widget_typeid  
+
+          when 1 %>
+
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+
+            <div data-id="<%= c.id %>" data-view="Number1" data-title="<%= c.title %>" total='<%=Rails.application.config.GLOBAL_CACHE[c.id]["total"]%>' updated='<%=Rails.application.config.GLOBAL_CACHE[c.id]["updated"]%>' urlLink='<%=Rails.application.config.GLOBAL_CACHE[c.id]["urlLink"]%>' ></div>
+
+            </li>
+
+          <% when 2 %>
+
+
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="2">
+            <div data-id="<%= c.id %>" data-view="Timeline" data-title="<%= c.title %>" events='<%=Rails.application.config.GLOBAL_CACHE[c.id]["events"]%>' ></div>
+
+            </li>
+
+          <% when 3 %>
+              <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+                <div data-id="<%= c.id %>" data-view="Text" data-title="<%= c.title %>" data-text="<%= c.datatext %>" data-moreinfo="<%= c.moreinfo %>"></div>
+              </li>
+          <% when 4 %>
+
+            <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
+            <div id="tablediv<%=c.id%>" data-id="<%= c.id %>" data-view="Table" data-title="<%= c.title %>"  rows='<%=Rails.application.config.GLOBAL_CACHE[c.id]["rows"]%>' hrows='<%=Rails.application.config.GLOBAL_CACHE[c.id]["hrows"]%>' updated='<%=Rails.application.config.GLOBAL_CACHE[c.id]["updated"]%>' urlLink='<%=Rails.application.config.GLOBAL_CACHE[c.id]["urlLink"]%>'></div>
+            <script type="text/javascript">
+
+              function foo<%=c.id%>(){
+                if (document.getElementById("tablediv<%=c.id%>").childNodes.length!=0 && document.getElementById("tablediv<%=c.id%>").getAttribute("hrows").length>2){
+                  var cache_table=document.createElement("table");
+                  tr1=document.createElement("tr");
+                  th1=document.createElement("th");
+                  th1.appendChild(document.createTextNode("Firstname"));
+                  th2=document.createElement("th");
+                  th2.appendChild(document.createTextNode("Lastname"));
+                  tr1.appendChild(th1);
+                  tr1.appendChild(th2);
+                  tr2=document.createElement("tr");
+                  td1=document.createElement("td");
+                  td1.appendChild(document.createTextNode("Jill"));
+                  td2=document.createElement("td");
+                  td2.appendChild(document.createTextNode("Smith"));
+                  tr2.appendChild(td1);
+                  tr2.appendChild(td2);
+                  cache_table.appendChild(tr1);
+                  cache_table.appendChild(tr2);
+                  hrowsstr=document.getElementById("tablediv<%=c.id%>").getAttribute("hrows");
+                  hrowsstr_mod=hrowsstr.replace(/:/g,'').replace(/=>/g,':').replace("[{cols:",'').replace("}]",'');
+                  hrows=eval(hrowsstr_mod);
+                  var table=document.createElement("table");
+                  tr=document.createElement("tr");
+                  for (i=0;i<hrows.length;i++){
+                    th=document.createElement("th");
+                    th.appendChild(document.createTextNode(hrows[i].value));
+                    tr.appendChild(th);
+                  }
+                  table.appendChild(tr);
+                  rowsstr=document.getElementById("tablediv<%=c.id%>").getAttribute("rows");
+                  rowsstr_mod="["+rowsstr.replace(/ nil,/g,'').replace(/:/g,'').replace(/=>/g,':').replace(/]}/g,'').replace(/{cols:/g,'').replace(/\[/g,'');
+                  rows=eval(rowsstr_mod);
+                  for(t=0;t<rows.length/4;t++){
+                    tr=document.createElement("tr");
+                    for (j=4*t;j<4*t+4;j++){
+                      td=document.createElement("td");
+                      td.appendChild(document.createTextNode(rows[j].value));
+                      tr.appendChild(td);
+                    }
+                    table.appendChild(tr);
+                  }
+                  
+                  
+                  document.getElementById("tablediv<%=c.id%>").removeEventListener('DOMSubtreeModified', foo<%=c.id%>);
+                  var parent=document.getElementById("tablediv<%=c.id%>").getElementsByTagName("div")[0];
+                  table.setAttribute("id","table<%=c.id%>");
+                  table.id="table<%=c.id%>";
+                  parent.appendChild(table);
+                  }
+              }
+            $(document).ready(function(){
+              document.getElementById("tablediv<%=c.id%>").addEventListener('DOMSubtreeModified', foo<%=c.id%>);
+            });
+            </script>
+            </li>
+
+          <% when 5 %>
+
+
+
+            <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
+            <div  id="tablediv<%=c.id%>" data-id="<%= c.id %>" data-view="Table" data-title="<%= c.title %>" data-moreinfo="<%= c.moreinfo %>" rows='<%=Rails.application.config.GLOBAL_CACHE[c.id]["rows"]%>' hrows='<%=Rails.application.config.GLOBAL_CACHE[c.id]["hrows"]%>' updated='<%=Rails.application.config.GLOBAL_CACHE[c.id]["updated"]%>' urlLink='<%=Rails.application.config.GLOBAL_CACHE[c.id]["urlLink"]%>'></div>
+            <script type="text/javascript">
+
+              function foo<%=c.id%>(){
+                if (document.getElementById("tablediv<%=c.id%>").childNodes.length!=0 && document.getElementById("tablediv<%=c.id%>").getAttribute("hrows").length>2){
+                  var cache_table=document.createElement("table");
+                  tr1=document.createElement("tr");
+                  th1=document.createElement("th");
+                  th1.appendChild(document.createTextNode("Firstname"));
+                  th2=document.createElement("th");
+                  th2.appendChild(document.createTextNode("Lastname"));
+                  tr1.appendChild(th1);
+                  tr1.appendChild(th2);
+                  tr2=document.createElement("tr");
+                  td1=document.createElement("td");
+                  td1.appendChild(document.createTextNode("Jill"));
+                  td2=document.createElement("td");
+                  td2.appendChild(document.createTextNode("Smith"));
+                  tr2.appendChild(td1);
+                  tr2.appendChild(td2);
+                  cache_table.appendChild(tr1);
+                  cache_table.appendChild(tr2);
+                  hrowsstr=document.getElementById("tablediv<%=c.id%>").getAttribute("hrows");
+                  hrowsstr_mod=hrowsstr.replace(/:/g,'').replace(/=>/g,':').replace("[{cols:",'').replace("}]",'');
+                  hrows=eval(hrowsstr_mod);
+                  var table=document.createElement("table");
+                  tr=document.createElement("tr");
+                  for (i=0;i<hrows.length;i++){
+                    th=document.createElement("th");
+                    th.appendChild(document.createTextNode(hrows[i].value));
+                    tr.appendChild(th);
+                  }
+                  table.appendChild(tr);
+                  rowsstr=document.getElementById("tablediv<%=c.id%>").getAttribute("rows");
+                  rowsstr_mod="["+rowsstr.replace(/ nil,/g,'').replace(/:/g,'').replace(/=>/g,':').replace(/]}/g,'').replace(/{cols:/g,'').replace(/\[/g,'');
+                  rows=eval(rowsstr_mod);
+                  for(t=0;t<rows.length/9;t++){
+                    tr=document.createElement("tr");
+                    for (j=9*t;j<9*t+9;j++){
+                      td=document.createElement("td");
+                      td.appendChild(document.createTextNode(rows[j].value));
+                      tr.appendChild(td);
+                    }
+                    table.appendChild(tr);
+                  }
+                  document.getElementById("tablediv<%=c.id%>").removeEventListener('DOMSubtreeModified', foo<%=c.id%>);
+                  table.setAttribute("id","table<%=c.id%>");
+                  var parent=document.getElementById("tablediv<%=c.id%>").getElementsByTagName("div")[0];
+                  table.setAttribute("id","table<%=c.id%>");
+                  table.id="table<%=c.id%>";
+                  parent.appendChild(table);
+                  }
+              }
+            $(document).ready(function(){
+              document.getElementById("tablediv<%=c.id%>").addEventListener('DOMSubtreeModified', foo<%=c.id%>);
+            });
+            </script>
+
+
+
+            </li>
+          <% when 6 %>
+
+            <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+            <div data-id="<%= c.id %>" data-view="GoogleLine" data-title="<%= c.title %> " points='<%=Rails.application.config.GLOBAL_CACHE[c.id]["points"]%>' updated='<%=Rails.application.config.GLOBAL_CACHE[c.id]["updated"]%>' urlLink='<%=Rails.application.config.GLOBAL_CACHE[c.id]["urlLink"]%>'></div>
+            </li>
+
+          <% when 7 %>
+
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+            <div data-id="<%= c.id %>" data-view="Meter" data-title="<%= c.title %>" data-height="200" data-width="200" data-min="0" data-max="100" data-suffix="%" value='<%=Rails.application.config.GLOBAL_CACHE[c.id]["value"]%>' updated='<%=Rails.application.config.GLOBAL_CACHE[c.id]["updated"]%>' urlLink='<%=Rails.application.config.GLOBAL_CACHE[c.id]["urlLink"]%>'></div>
+            </li>
+
+          <% when 8 %>
+
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+            <div data-view="Countdown" data-title="<%= c.title %>" data-end="<%= c.dateend %>"></div>
+            </li>
+
+          <% when 9 %>
+          <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+            
+            <div data-id="<%= c.id %>" data-view="BuildWindow" data-title="<%= c.title %>" status='<%=Rails.application.config.GLOBAL_CACHE[c.id]["status"]%>' name='<%=Rails.application.config.GLOBAL_CACHE[c.id]["name"]%>' health='<%=Rails.application.config.GLOBAL_CACHE[c.id]["health"]%>' msg='<%=Rails.application.config.GLOBAL_CACHE[c.id]["msg"]%>' urlLink='<%=Rails.application.config.GLOBAL_CACHE[c.id]["urlLink"]%>' updated='<%=Rails.application.config.GLOBAL_CACHE[c.id]["updated"]%>' >
+              <%=Rails.application.config.GLOBAL_CACHE[c.id]["status"]%>
+            </div>
+            
+            </li>
+          <% when 10 %>
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+            
+            <div data-id="<%= c.id %>" data-view="BuildWindow" data-title="<%= c.title %>" status='<%=Rails.application.config.GLOBAL_CACHE[c.id]["status"]%>' name='<%=Rails.application.config.GLOBAL_CACHE[c.id]["name"]%>' health='<%=Rails.application.config.GLOBAL_CACHE[c.id]["health"]%>' msg='<%=Rails.application.config.GLOBAL_CACHE[c.id]["msg"]%>' urlLink='<%=Rails.application.config.GLOBAL_CACHE[c.id]["urlLink"]%>' updated='<%=Rails.application.config.GLOBAL_CACHE[c.id]["updated"]%>' >
+              <%=Rails.application.config.GLOBAL_CACHE[c.id]["status"]%>
+            </div>
+            
+            </li>
+          <% when 11 %>
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+            
+            <div data-id="<%= c.id %>" data-view="BuildWindow" data-title="<%= c.title %>" status='<%=Rails.application.config.GLOBAL_CACHE[c.id]["status"]%>' name='<%=Rails.application.config.GLOBAL_CACHE[c.id]["name"]%>' health='<%=Rails.application.config.GLOBAL_CACHE[c.id]["health"]%>' msg='<%=Rails.application.config.GLOBAL_CACHE[c.id]["msg"]%>' urlLink='<%=Rails.application.config.GLOBAL_CACHE[c.id]["urlLink"]%>' updated='<%=Rails.application.config.GLOBAL_CACHE[c.id]["updated"]%>' >
+              <%=Rails.application.config.GLOBAL_CACHE[c.id]["status"]%>
+            </div>
+            
+            </li>
+
+
+          <% when 12 %>
+
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+              <div data-id="<%= c.id %>" data-view="GithubStatus" data-title="<%= c.title %>"></div>
+            </li>
+
+          <% when 13 %>
+
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+              <div data-id="<%= c.id %>" data-view="GoogleColumn"  data-colors="green" data-legend_position="none" data-title="<%= c.title %> Jobname: <%= c.jobname %>" responseT='<%=Rails.application.config.GLOBAL_CACHE[c.id]["responseT"]%>' urlLink='<%=Rails.application.config.GLOBAL_CACHE[c.id]["urlLink"]%>'></div>
+            </li>
+
+          <% when 14 %>
+
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+            <div data-id="<%= c.id %>" data-view="Number1" data-title="<%= c.title %> Jobname: <%= c.jobname %>" total='<%=Rails.application.config.GLOBAL_CACHE[c.id]["current"]%>' updated='<%=Rails.application.config.GLOBAL_CACHE[c.id]["updated"]%>'>
+              <%=Rails.application.config.GLOBAL_CACHE[c.id]["current"]%>
+            </div>
+            </li>
+
+          <% when 15 %>
+
+            <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+              <div data-id="<%= c.id %>" data-view="GooglePie"  data-title="<%= c.title %> Milestone ID: <%= c.jobname %>" slices='<%=Rails.application.config.GLOBAL_CACHE[c.id]["slices"]%>' urlLink='<%=Rails.application.config.GLOBAL_CACHE[c.id]["urlLink"]%>'></div>
+            </li>
+            
+          <% else %>
+
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+            <div data-id="error" data-view="Text" data-title="Error" data-text="Error Adding Widget" data-moreinfo="error"></div>
+            </li>
+
+        <% end %>
+
+      <% end %>
+
+    <% end %>
+
+  </ul>
+  
+</div>

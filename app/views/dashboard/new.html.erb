@@ -1,0 +1,25 @@
+<h2>Add New Dashboard</h2>
+
+<%= form_tag :action => 'create' do %>
+
+
+<p><label for = "dashboard_release">Dashboard Name</label>:
+<%= text_field 'dashboard', 'release', placeholder: "R15.4"%></p>
+
+<p><label for = "dashboard_layout">Dashboard Layout</label>:
+<%= text_area 'dashboard', 'layoutDash', placeholder: "{Optional}", size: "50x5"%></p>
+
+<p ><label for = "pub">Make Dashboard Public?</label>:
+<%= text_field 'dashboard', 'pub', placeholder: "true"%></p>
+
+<%= submit_tag "Create" %>
+
+<% end %>
+
+<%= link_to 'Back', {:action => 'list'} %>
+
+<hr />
+
+<p><%= button_to "Dashboard List", {:controller => 'dashboard', :action => 'list'}, {class: 'blueButton', method: 'get'}%></p>
+
+<div id="githublink"><%= link_to "Github README", "https://github.com/alexsheehan1/release_dashboard", :target => "_blank" %></div>

@@ -1,0 +1,33 @@
+<% if @dashboards.blank? %>
+<p>There are not any dashboards currently in the system.</p>
+<% else %>
+<p>These are the current dashboards in our system</p>
+
+<ul id = "dashboards">
+   <% @dashboards.each do |c| %>
+   <% if c.pub==true%>
+   <li>
+   <%= link_to c.release, {:action => 'show', :id => c.id} %>
+   <b> <%= link_to 'Edit', {:action => 'edit', :id => c.id} %></b>
+   <b> <%= link_to "Delete", {:action => 'delete', :id => c.id},
+      :confirm => "Are you sure you want to delete this item?" %></b>
+
+   <b><%= link_to "View ", "/dashing/dashboards/dashboard?id=" + c.id.to_s, data: { confirm: "Are you sure?" } %></b>
+
+	</li>
+   <%end%>
+   <% end %>
+</ul>
+<% end %>
+<% if !@dashboards.blank? %>
+<p><%= button_to "Add new Widget", {:controller => 'widget', :action => 'new' }, {class: 'blueButton', method: 'get'}%></p>
+<% end %>
+<p><%= button_to "Add new Dashboard", {:action => 'new' }, {class: 'blueButton', method: 'get'}%></p>
+<p><%= button_to "Dashboard List (Refresh)", {:controller => 'dashboard', :action => 'list'}, {class: 'blueButton', method: 'get'}%></p>
+
+<p><%= button_to "My Dashboards",{:controller => 'users', :action => 'show', :id=>session[:id]}, {class: 'blueButton', method: 'get'}%></p>
+
+
+<div id="githublink"><%= link_to "Github README", "https://github.com/alexsheehan1/release_dashboard", :target => "_blank" %></div>
+
+

@@ -1,0 +1,363 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+/* line 7, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/build_window.scss */
+.widget-build-window {
+  background-color: #999999;
+  border-radius: 15px;
+  /*.justify {
+    text-align:justify;
+  }
+  */
+}
+/* line 13, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/build_window.scss */
+.widget-build-window .title {
+  color: rgba(255, 255, 255, 0.7);
+}
+/* line 17, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/build_window.scss */
+.widget-build-window .value {
+  color: white;
+}
+/* line 21, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/build_window.scss */
+.widget-build-window .more-info {
+  color: rgba(255, 255, 255, 0.7);
+}
+/* line 25, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/build_window.scss */
+.widget-build-window .updated-at {
+  color: rgba(0, 0, 0, 0.3);
+}
+/* line 29, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/build_window.scss */
+.widget-build-window .small {
+  font-size: 0.6em;
+}
+/* line 9, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/countdown.scss */
+.widget-countdown {
+  background-color: #2a455c;
+  border-radius: 15px;
+}
+/* line 14, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/countdown.scss */
+.widget-countdown h2 {
+  font-size: 2em;
+}
+/* line 16, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/countdown.scss */
+.widget-countdown h1 {
+  font-size: 2em;
+}
+/* line 18, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/countdown.scss */
+.widget-countdown .countdown-time {
+  margin-top: 10px;
+  color: gold;
+}
+/* line 23, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/countdown.scss */
+.widget-countdown .before-more-info {
+  font-size: 15px;
+  position: absolute;
+  bottom: 52px;
+  left: 0;
+  right: 0;
+}
+/* line 4, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status {
+  background: #2a455c url("/assets/invertocat.png") no-repeat center;
+  position: relative;
+  overflow: hidden;
+}
+/* line 8, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status.good {
+  color: #396;
+}
+/* line 9, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status.minor {
+  color: #f29d50;
+}
+/* line 10, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status.major {
+  color: #c30;
+}
+/* line 12, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status div {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+/* line 19, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status #latest-message {
+  top: 25px;
+  margin: 0 5px;
+}
+/* line 22, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status #latest-message #message {
+  background: #ccc;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+/* line 26, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status #latest-message #message.good {
+  background: #eaf4ef;
+  border-color: #99ccb2;
+}
+/* line 30, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status #latest-message #message.minor {
+  background: #fdf5ed;
+  border-color: #f8cea7;
+}
+/* line 34, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status #latest-message #message.major {
+  background: #f9eae5;
+  border-color: #e5997f;
+}
+/* line 41, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status #github-logo {
+  bottom: 20px;
+  height: 54px;
+  width: 250px;
+  background-size: 100% !important;
+}
+/* line 46, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status #github-logo.good {
+  background: url("/assets/logo-good.png");
+}
+/* line 47, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status #github-logo.minor {
+  background: url("/assets/logo-minor.png");
+}
+/* line 48, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status #github-logo.major {
+  background: url("/assets/logo-major.png");
+}
+/* line 51, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/github_status.scss */
+.widget-github-status .updated-at {
+  color: rgba(255, 255, 255, 0.7);
+}
+/* line 9, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/google_column.scss */
+.widget-google-column {
+  background-color: #fb9618;
+  position: relative;
+}
+/* line 14, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/google_column.scss */
+.widget-google-column .title {
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  right: 0px;
+}
+/* line 21, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/google_column.scss */
+.widget-google-column .chart {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+/* line 9, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/google_line.scss */
+.widget-google-line {
+  background-color: #fb9618;
+  position: relative;
+  border-radius: 15px;
+}
+/* line 15, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/google_line.scss */
+.widget-google-line .title {
+  position: absolute;
+  top: 5px;
+  left: 0px;
+  right: 0px;
+}
+/* line 22, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/google_line.scss */
+.widget-google-line .chart {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+/* line 27, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/google_line.scss */
+.widget-google-line .more-info {
+  bottom: 5px;
+  position: absolute;
+}
+/* line 11, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/google_pie.scss */
+.widget-google-pie {
+  background-color: #45b7e9;
+  position: relative;
+  border-radius: 15px;
+}
+/* line 17, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/google_pie.scss */
+.widget-google-pie .title {
+  position: absolute;
+  color: black;
+  top: 5px;
+  left: 0px;
+  right: 0px;
+}
+/* line 25, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/google_pie.scss */
+.widget-google-pie .chart {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+/* line 14, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/number1.scss */
+.widget-number1 {
+  background-color: #000000;
+  border-radius: 15px;
+  /*.title {
+    color: $title-color;
+  }*/
+}
+/* line 25, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/number1.scss */
+.widget-number1 .value {
+  color: white;
+}
+/* line 29, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/number1.scss */
+.widget-number1 .change-rate {
+  font-weight: 500;
+  font-size: 30px;
+  color: white;
+}
+/* line 35, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/number1.scss */
+.widget-number1 .more-info {
+  color: rgba(255, 255, 255, 0.7);
+}
+/* line 39, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/number1.scss */
+.widget-number1 .updated-at {
+  color: #ffffff;
+  /*rgba(0, 0, 0, 0.3);*/
+}
+/*$background-color:  #2A455C;*/
+/*$value-color:       #7582e3;*/
+/* line 22, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/table.scss */
+.widget-table {
+  background-color: #b0b9e8;
+  border-radius: 15px;
+  /*.title {
+    color: $title-color;
+  }*/
+}
+/* line 32, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/table.scss */
+.widget-table .value {
+  margin-left: 12px;
+  font-weight: 500;
+  color: white;
+}
+/* line 38, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/table.scss */
+.widget-table .updated-at {
+  color: #000000;
+  /*rgba(0, 0, 0, 0.3);*/
+}
+/* line 43, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/table.scss */
+.widget-table .more-info {
+  color: rgba(255, 255, 255, 0.7);
+}
+/* line 48, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/table.scss */
+.widget-table table {
+  border-collapse: collapse;
+  vertical-align: top;
+}
+/* line 55, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/table.scss */
+.widget-table th {
+  background-color: #5974c0;
+}
+/* line 58, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/table.scss */
+.widget-table tr:nth-child(odd) {
+  background-color: #5e8cba;
+}
+/* line 59, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/table.scss */
+.widget-table tr:nth-child(even) {
+  background-color: #7582a3;
+}
+/* line 62, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/table.scss */
+.widget-table tr:hover {
+  background-color: black;
+}
+/* line 64, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/table.scss */
+.widget-table td {
+  margin: 0 15px;
+  /*font: 12;*/
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  vertical-align: top;
+}
+/* line 72, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/table.scss */
+.widget-table .left {
+  text-align: left;
+}
+/* line 75, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/table.scss */
+.widget-table .right {
+  text-align: right;
+}
+/*$background-color:  #45B7E9;
+
+$title-color:       rgba(255, 255, 255, 1);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);*/
+/* line 12, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/text.scss */
+.widget-text {
+  background-color: #45B7E9;
+  border-radius: 15px;
+}
+/* line 16, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/text.scss */
+.widget-text h2 {
+  font-size: 2em;
+}
+/* line 17, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/text.scss */
+.widget-text h1 {
+  font-size: 2em;
+}
+/* line 20, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/text.scss */
+.widget-text .title {
+  color: white;
+}
+/* line 24, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/text.scss */
+.widget-text .more-info {
+  color: rgba(255, 255, 255, 0.7);
+}
+/* line 28, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/text.scss */
+.widget-text .updated-at {
+  color: rgba(255, 255, 255, 0.7);
+}
+/* line 33, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/text.scss */
+.widget-text.large h3 {
+  font-size: 65px;
+}
+/* line 12, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/timeline.scss */
+.widget-timeline {
+  background-color: #4b4b4b;
+  padding-bottom: 70px;
+  border-radius: 15px;
+}
+/* line 18, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/timeline.scss */
+.widget-timeline .title {
+  color: rgba(255, 255, 255, 0.7);
+}
+/* line 22, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/timeline.scss */
+.widget-timeline .more-info {
+  color: rgba(255, 255, 255, 0.7);
+}
+/* line 26, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/timeline.scss */
+.widget-timeline .event-description {
+  fill: white;
+  font-size: 14px;
+}
+/* line 31, /Users/alexsheehan/GoogleDrive/Coupa/release_dashboard/app/assets/stylesheets/dashing/widgets/timeline.scss */
+.widget-timeline .event-description-date {
+  fill: white;
+  font-size: 12px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+ */

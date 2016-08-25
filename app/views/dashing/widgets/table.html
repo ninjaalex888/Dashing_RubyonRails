@@ -1,0 +1,28 @@
+<a id="mylink"  href="https://coupadev.atlassian.net/issues" target="_blank">
+<h1 class="title" data-bind="title"  style="vertical-align: top;"></h1>
+
+
+<div id="tableContainer" class="tableContainer">
+<table id="rows" class = "widgetTable">
+  <thead class = "fixedHeader">
+   <tr data-foreach-hrow="hrows" data-bind-style="hrow.style" data-bind-class="hrow.class">
+      <th data-foreach-col="hrow.cols" data-bind-colspan="col.colspan" data-bind-rowspan="col.rowspan" data-bind-style="col.style" data-bind-class="col.class">
+        <span  class="table-value" data-bind="col.value | raw"></span>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody class="scrollContent">
+    <tr data-foreach-row="rows" data-bind-style="row.style" data-bind-class="row.class">
+      <td data-foreach-col="row.cols" data-bind-colspan="col.colspan" data-bind-rowspan="col.rowspan" data-bind-style="col.style" data-bind-class="col.class">
+        <span  class="table-value" data-bind="col.value | raw"></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p style="color:#5e8cba;" class="more-info" data-bind="moreinfo"></p>
+<p class="updated-at" data-bind="updatedAtMessage"></p>
+   <p   class="link"></p>
+</a>
